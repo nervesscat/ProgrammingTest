@@ -2,6 +2,12 @@ import { resolveDependencies } from './parser/parser.js';
 import fs from 'fs';
 import readline from 'readline';
 
+/**
+ * Author: Enrique Madrid
+ * Email: contact@nervess.cat
+ * Date: 2024-11-02
+ */
+
 function main() {
     const rl = readline.createInterface({
         input: process.stdin,
