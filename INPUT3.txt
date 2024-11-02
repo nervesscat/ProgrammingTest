@@ -1,6 +1,23 @@
 A depends on B C
-B depends on C E
-C depends on G
-D depends on A F
-E depends on F
-F depends on H
+B depends on D E
+C depends on F
+D depends on G
+E depends on H
+F depends on I
+G depends on J
+H depends on K
+I depends on L
+J depends on M
+K depends on N
+L depends on O
+M depends on P
+N depends on Q
+O depends on R
+P depends on S
+Q depends on T
+R depends on U
+S depends on V
+T depends on W
+U depends on X
+V depends on Y
+W depends on Z
