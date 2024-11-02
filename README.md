@@ -51,6 +51,8 @@ npm test
 
 It's important to note that the project assumes that the input file is in the correct format, for example you can't write `A depends onB C D` or `Bdepends on A` as the project will not be able to parse the file correctly. There should be a space between the package name and the `depends on` keyword and between the `depends on` keyword and the dependencies.
 
+### Circular Dependencies
+
 The library handle circular dependencies, for example, if you have the following input:
 
 ```text
@@ -80,7 +82,7 @@ Will be parsed correctly and the output will be:
 ```text
 A depends on B C D E F G
 B depends on A C D E F G
-C depends on F G A B D E
+C depends on A B D E F G
 ```
 
 ### Naming Rules
