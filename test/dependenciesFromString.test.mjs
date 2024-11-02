@@ -6,8 +6,8 @@ const normalize = (str) => str.replace(/\s+/g, ' ').trim();
 it('should resolve easy dependencies', (done) => {
     let libraries = `A depends on B C
 B depends on C E
-C depends on G  
-D depends on A F   
+C depends on G    
+D depends on A   F   
 E depends on F
 F depends on H`;
     let expectedOutput = `A depends on B C E F G H
@@ -50,6 +50,29 @@ B depends on A`;
 it('should handle multiple dependencies', (done) => {
     let libraries = `A depends on B C D`;
     let expectedOutput = `A depends on B C D`;
+    const dependencies = resolveDependencies(libraries);
+    expect(normalize(dependencies)).to.equal(normalize(expectedOutput));
+    done();
+});
+
+
+it('should handle empty dependencies', (done) => {
+    let libraries = `A depends on B C
+B depends on 
+C depends on A`;
+    let expectedOutput = `A depends on B C
+B depends on 
+C depends on A B`;
+    const dependencies = resolveDependencies(libraries);
+    expect(normalize(dependencies)).to.equal(normalize(expectedOutput));
+    done();
+});
+
+it('should handle weird dependencies names', (done) => {
+    let libraries = `C_4T depends on B
+D depends on C C_4T`;
+    let expectedOutput = `C_4T depends on B
+D depends on B C C_4T`;
     const dependencies = resolveDependencies(libraries);
     expect(normalize(dependencies)).to.equal(normalize(expectedOutput));
     done();
