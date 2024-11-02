@@ -13,6 +13,7 @@ This took me around 7 hours to complete, including the tests and the documentati
 To run the project, you need to have Node.js installed. Then, you can run the following commands:
 
 ```bash
+npm install
 npm main.js
 ```
 
